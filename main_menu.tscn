@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://dainc64ny0uue"]
+
+[ext_resource type="Script" uid="uid://0neby2nf3h1r" path="res://main_menu.gd" id="1_vhgtv"]
+[ext_resource type="Texture2D" uid="uid://1455t3uhkny2" path="res://Rocky Roads/Backgrounds/depositphotos_357942390-stock-illustration-pixel-art-background-location-mountains.webp" id="2_8cfpu"]
+[ext_resource type="Texture2D" uid="uid://ct3kxlclv6ktr" path="res://Rocky Roads/Backgrounds/Version.png" id="3_w6fns"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jix8l"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vhgtv")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 51.0
+offset_right = 500.0
+offset_bottom = 551.0
+texture = ExtResource("2_8cfpu")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 234.0
+offset_right = 500.0
+offset_bottom = 378.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "menu.................."
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "."
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "."
+icon = SubResource("ViewportTexture_jix8l")
+
+[node name="Version" type="Sprite2D" parent="CenterContainer/VBoxContainer"]
+position = Vector2(66, 57.000004)
+scale = Vector2(0.17733765, 0.08940633)
+texture = ExtResource("3_w6fns")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(256, 306)
+zoom = Vector2(2, 2)
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

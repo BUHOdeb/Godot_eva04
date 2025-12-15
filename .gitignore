@@ -1,0 +1,15 @@
+# Godot 4
+.godot/
+
+# Exportaciones
+.export/
+export_presets.cfg
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Sistema
+.DS_Store
+Thumbs.db
+

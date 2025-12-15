@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfxfgfwarac1s"]
+
+[ext_resource type="Texture2D" uid="uid://b3pt7e21qondq" path="res://Rocky Roads/Deco/bush.png" id="1_a7ipy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7ipy"]
+size = Vector2(12.375, 10.5)
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["grabbable"]]
+collision_layer = 7
+angular_damp = 1.0
+
+[node name="Bush" type="Sprite2D" parent="."]
+position = Vector2(2.2500002, 1.2499995)
+scale = Vector2(0.671875, 0.84374994)
+texture = ExtResource("1_a7ipy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.8125, 3)
+shape = SubResource("RectangleShape2D_a7ipy")

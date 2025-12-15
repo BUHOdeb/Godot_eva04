@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgiti33cj28ag"]
+
+[ext_resource type="Script" uid="uid://dfffgtlbov3st" path="res://game_over.gd" id="1_8d5yl"]
+[ext_resource type="Texture2D" uid="uid://s5muc4oa3l56" path="res://Rocky Roads/Backgrounds/GameOver.png" id="2_2mkai"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8d5yl")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 64.0
+offset_right = 289.0
+offset_bottom = 157.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="HAS MUERTO" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "solo lo hago"
+
+[node name="Retry" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "."
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "."
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(143, 82)
+zoom = Vector2(4, 4)
+
+[node name="GameOver" type="Sprite2D" parent="."]
+position = Vector2(143, 80.12502)
+scale = Vector2(0.18489583, 0.16381828)
+texture = ExtResource("2_2mkai")
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
