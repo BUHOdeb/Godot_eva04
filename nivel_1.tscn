@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://beb0m3jhulwro"]
+[gd_scene load_steps=13 format=4 uid="uid://beb0m3jhulwro"]
 
 [ext_resource type="Script" uid="uid://0uqepehntvf5" path="res://nivel_1.gd" id="1_61s06"]
 [ext_resource type="Texture2D" uid="uid://dshebqjtx8dsb" path="res://Rocky Roads/Backgrounds/pixel-arte-perfecta-el-paisaje-con-la-zona-del-trópico.webp" id="2_70khi"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://tr1lmkkbr8fc" path="res://coin.tscn" id="6_u4y7y"]
 [ext_resource type="PackedScene" uid="uid://d264dr6o7c3gw" path="res://death_zone.tscn" id="7_4a01a"]
 [ext_resource type="PackedScene" uid="uid://dfxfgfwarac1s" path="res://caja.tscn" id="8_8lvc2"]
+[ext_resource type="PackedScene" uid="uid://cuqktsbmirlsx" path="res://hud.tscn" id="9_h0wtr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lask"]
 texture = ExtResource("3_hvxa3")
@@ -122,3 +123,5 @@ position = Vector2(-11, 696)
 
 [node name="RigidBody2D" parent="." instance=ExtResource("8_8lvc2")]
 position = Vector2(289, 672)
+
+[node name="HUD" parent="." instance=ExtResource("9_h0wtr")]

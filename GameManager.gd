@@ -1,8 +1,8 @@
 extends Node
 
-# -----------------------------
-# Estado global
-# -----------------------------
+
+# estado global
+
 var lives := 3
 var coins := 0
 var current_level := 1
@@ -15,6 +15,10 @@ var player: CharacterBody2D
 @export var level_2_path := "res://nivel_2.tscn"
 @export var congratulations_path := "res://congratulations.tscn"
 
+signal hud_updated
+
+
+# hud y estado
 
 func start_game():
 	lives = 3
@@ -22,38 +26,34 @@ func start_game():
 	current_level = 1
 	player = null
 	last_checkpoint = Vector2.ZERO
+	emit_signal("hud_updated")
 
 func register_player(p: CharacterBody2D):
 	player = p
-	last_checkpoint = p.global_position # spawn inicial
+	last_checkpoint = p.global_position
 
 func update_checkpoint():
 	if player:
 		last_checkpoint = player.global_position
 
 
+# monedas
+
 func add_coin():
 	coins += 1
-	update_checkpoint() # ← AQUÍ SE GUARDA EL SPAWN
-	print("Monedas:", coins)
+	update_checkpoint()
+	emit_signal("hud_updated")
 
 	if coins >= coins_to_win:
 		coins = 0
 		advance_level()
 
 
-func advance_level():
-	current_level += 1
-
-	if current_level == 2:
-		get_tree().change_scene_to_file(level_2_path)
-	else:
-		get_tree().change_scene_to_file(congratulations_path)
-
+# vidas
 
 func lose_life():
 	lives -= 1
-	print("Vidas:", lives)
+	emit_signal("hud_updated")
 
 	if lives <= 0:
 		get_tree().change_scene_to_file("res://game_over.tscn")
@@ -66,6 +66,17 @@ func respawn():
 		player.velocity = Vector2.ZERO
 
 
+# niveles
+func advance_level():
+	current_level += 1
+
+	if current_level == 2:
+		get_tree().change_scene_to_file(level_2_path)
+	else:
+		get_tree().change_scene_to_file(congratulations_path)
+
 func reset_level():
 	lives = 3
 	coins = 0
+	emit_signal("hud_updated")
+#

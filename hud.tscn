@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuqktsbmirlsx"]
+
+[ext_resource type="Script" uid="uid://oxgilpmxp5qr" path="res://hud.gd" id="1_37p78"]
+[ext_resource type="Texture2D" uid="uid://d3puc33465efk" path="res://Rocky Roads/UI/hearts.png" id="2_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://cqmh2nhssqo04" path="res://Rocky Roads/UI/coin.png" id="3_640wx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sq4i"]
+atlas = ExtResource("2_8sq4i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_640wx"]
+atlas = ExtResource("3_640wx")
+region = Rect2(0, 0, 16, 16)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_37p78")
+heart_texture = SubResource("AtlasTexture_8sq4i")
+coin_texture = SubResource("AtlasTexture_640wx")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Hearts" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="icono corazón" type="TextureRect" parent="Control/Hearts"]
+layout_mode = 2
+texture = ExtResource("2_8sq4i")
+
+[node name="vidas" type="Label" parent="Control/Hearts"]
+layout_mode = 2
+
+[node name="Coins" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 3.0
+offset_right = 212.0
+offset_bottom = 45.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Coins"]
+layout_mode = 2
+texture = ExtResource("3_640wx")
+
+[node name="monedas" type="Label" parent="Control/Coins"]
+layout_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dbust1htsyeqy"]
+[gd_scene load_steps=10 format=4 uid="uid://dbust1htsyeqy"]
 
 [ext_resource type="Script" uid="uid://b3ge0m0tbdhst" path="res://nivel_2.gd" id="1_e34w8"]
 [ext_resource type="Texture2D" uid="uid://1455t3uhkny2" path="res://Rocky Roads/Backgrounds/depositphotos_357942390-stock-illustration-pixel-art-background-location-mountains.webp" id="2_dh5qm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cbogvbne12ma4" path="res://playerCat.tscn" id="4_4awoi"]
 [ext_resource type="PackedScene" uid="uid://tr1lmkkbr8fc" path="res://coin.tscn" id="5_64q0a"]
 [ext_resource type="PackedScene" uid="uid://d264dr6o7c3gw" path="res://death_zone.tscn" id="6_mt6gi"]
+[ext_resource type="PackedScene" uid="uid://cuqktsbmirlsx" path="res://hud.tscn" id="7_es3ns"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t82tv"]
 texture = ExtResource("3_cagvo")
@@ -78,3 +79,5 @@ position = Vector2(-41, 586)
 
 [node name="PlayerCat" parent="." instance=ExtResource("4_4awoi")]
 position = Vector2(31, 545)
+
+[node name="HUD" parent="." instance=ExtResource("7_es3ns")]
